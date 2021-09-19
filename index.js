@@ -136,7 +136,7 @@ async function getSeriesId(txt) {
   if (!links.length) return ''
   const filterLinks = links
     .toArray()
-    .filter(link => link.children.find(child => child.data && child.data.includes('TV Series')))
+    .filter(link => link.children.find(child => child.data && ['TV Series', 'TV Mini Series'].every(key => child.data.includes(key))))
   if (filterLinks.length) {
 
     const href = filterLinks[0].children.find(child => child.name === 'a').attribs.href.replace('/title/', '')
@@ -153,7 +153,7 @@ bot.on('text', async (msg) => {
 
     return
   }
-  try{
+  try {
 
     const id = await getSeriesId(msg.text)
     if (!id) {
@@ -162,7 +162,7 @@ bot.on('text', async (msg) => {
     }
     const img = await idToImg(id)
     msg.reply.photo(img)
-  }catch{
+  } catch {
     msg.reply.text(`תקלה`)
   }
 
