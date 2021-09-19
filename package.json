@@ -1,0 +1,23 @@
+{
+  "name": "scraping",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "clear & node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cheerio": "^1.0.0-rc.10",
+    "colors": "^1.4.0",
+    "puppeteer": "^10.2.0",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6",
+    "sharp": "^0.29.1",
+    "telebot": "^1.4.1",
+    "vega": "^5.20.2"
+  }
+}
