@@ -136,14 +136,11 @@ async function getSeriesId(txt) {
   if (!links.length) return ''
   const filterLinks = links
     .toArray()
-    .filter(link => link.children.find(child => child.data && ['TV Series', 'TV Mini Series'].every(key => child.data.includes(key))))
+    .filter(link => link.children.find(child => child.data && ['TV Series', 'TV Mini Series'].entries(key => child.data.includes(key))))
   if (filterLinks.length) {
-
     const href = filterLinks[0].children.find(child => child.name === 'a').attribs.href.replace('/title/', '')
     return href.substr(0, href.indexOf('/'))
-
   }
-  return links.length
 }
 
 
